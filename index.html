@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>单页应用调度</title>
+  <style type="text/css">
+    #hide{display: none;}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <button id="login">login</button>
+      <button id="logout">logout</button>
+      <span id="tip"></span>
+    </div>
+    <div>
+      <a href="#/">home</a>
+      <a href="#/group">group</a>
+      <a href="#/group/china">group/china</a>
+      <a href="#/user/5">user</a>
+    </div>
+  </div>
+  <div id='hide'></div>
+  <script type="text/javascript">
+    (function(doc){
+      let login = doc.getElementById("login");
+      let logout = doc.getElementById("logout");
+      let tip = doc.getElementById("tip");
+
+      function setTipText () {
+        let session = localStorage.getItem('session');
+        tip.innerText = session ? '已登录' : ''
+      }
+      setTipText();
+
+      login.addEventListener("click",function(){
+        localStorage.setItem('session', true);
+        setTipText();
+      })
+      logout.addEventListener("click",function(){
+        localStorage.removeItem('session');
+        location.href = '#/';
+        setTipText();
+      })
+    })(document)
+  </script>
+  <script type="module">
+    import app from './src/app.js';
+
+    app.start({
+      matchers: [
+        '/',
+        '/group/',
+        '/group/:name',
+        '/user/:id',
+
+      ],
+      rules: [
+        {
+          matcher: /^\/$/i,
+          target: '/'
+        },
+        {
+          matcher: /^\/group$/i,
+          target: '/group'
+        },
+        {
+          matcher: /^\/group\/(\w)+/i,
+          target: '/group/'
+        },
+        {
+          matcher: /^\/user\/[\d]+/i,
+          target: '/user/'
+        },
+      ],
+      routes: {
+        '/': () => import('./src/module/home.js'),
+        '/user/': () => import('./src/module/user.js'),
+        '/group': () => import('./src/module/group.js'),
+        '/group/': () => import('./src/module/group_name.js')
+      }
+    })
+  </script>
+</body>
+</html>
