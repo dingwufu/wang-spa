@@ -1,29 +1,29 @@
 class Module {
-  constructor(config) {
+  constructor (config) {
     this._parent = (config && config.parent) || document.getElementById('app') || document.body;
   }
-  build(options){
+  build (options) {
     // 子类生成this._body
   }
-  show(context) {
+  show (context) {
     if (this._body) {
       this._parent.appendChild(this._body);
     }
   }
-  refresh(){
+  refresh () {
 
   }
-  hide() {
-    if(this._body) {
+  hide () {
+    if (this._body) {
       document.getElementById('hide').appendChild(this._body);
     }
   }
-  destroy() {
+  destroy () {
     let body = this._body;
-    if(body) {
+    if (body) {
       body.parentNode.removeChild(body);
     }
   }
 }
 
-export default Module
+export default Module;

@@ -6,8 +6,9 @@ export default function router (options) {
   let current = null;
 
   function moduleManage (module, name, context) {
-    if(!(module instanceof Module)) {
-      module = new module();
+    if (!(module instanceof Module)) {
+      let Module = module;
+      module = new Module();
       routes[name] = module;
       module.build(context);
     }
@@ -32,14 +33,14 @@ export default function router (options) {
     }
     if (moduleFunc.prototype && moduleFunc.prototype.build ) { // 加载静态组件
       moduleManage(moduleFunc, name, context);
-    } else if (typeof moduleFunc === 'function'){ // 动态加载组价
+    } else if (typeof moduleFunc === 'function') { // 动态加载组价
       moduleFunc().then((moduleObj) => {
         let module = moduleObj.default;
         moduleManage(module, name, context);
-      })
+      });
     } else { // 动态加载完成后的组件
       moduleManage(moduleFunc, name, context);
     }
     next();
-  }
+  };
 }

@@ -1,26 +1,26 @@
 import Module from './module.js';
 
 class Group extends Module {
-  build(options) {
+  build (options) {
     super.build(options);
     this._body = document.createElement('div');
     this._unode = document.createElement('p');
     this._body.appendChild(this._unode);
   }
 
-  show(context){
+  show (context) {
     super.show(context);
     this._doUpdate();
   }
 
-  refresh(context) {
+  refresh (context) {
     super.refresh(context);
     this._doUpdate();
   }
 
-  _doUpdate(name) {
+  _doUpdate (name) {
     this._unode.innerHTML = '<p>组件group</p>';
   }
 }
 
-export default Group
+export default Group;

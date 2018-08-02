@@ -7,14 +7,16 @@ module.exports = {
   },
   env: {
     browser: true,
+    es6: true,
   },
   extends: [
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
   // add your custom rules here
-  rules: {
+  rules : {
     // allow async-await
-    'generator-star-spacing': 'off'
+    'generator-star-spacing': 'off',
+    'semi': ['error', 'always']
   }
 }

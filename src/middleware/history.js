@@ -1,32 +1,32 @@
-export default function history() {
+export default function history () {
   var iframe = document.createElement('iframe');
   iframe.style.position = 'absolute';
   iframe.style.visibility = 'hidden';
   document.body.appendChild(iframe);
   iframe.src = 'about:blank';
 
-  window.history_locker = {};
-  var lock_key = 'lock:' + (+new Date);
-  function doPushHistory(hash) {
-    if(!hash || history_locker[lock_key]) {
-      history_locker[lock_key] = !1;
+  window.historyLocker = {};
+  var lockKey = 'lock:' + (+new Date());
+  function doPushHistory (hash) {
+    if (!hash || window.historyLocker[lockKey]) {
+      window.historyLocker[lockKey] = !1;
       return;
     }
-    try{
+    try {
       var doc = iframe.contentWindow.document;
       doc.write('<head><title>');
       doc.write(document.title);
       doc.write('</title>');
       doc.write(
         '<script>' +
-        'parent.history_locker["'+ lock_key+'"]=!0;'+
-        'parent.location.hash=decodeURIComponent("'+encodeURIComponent(hash)+'");'+
+        'parent.historyLocker["' + lockKey + '"]=!0;'+
+        'parent.location.hash=decodeURIComponent("' + encodeURIComponent(hash) + '");' +
         '</script>'
       );
       doc.write('</head><body></body>');
       doc.close();
-      history_locker[lock_key] = !1;
-    } catch(ex) {
+      window.historyLocker[lockKey] = !1;
+    } catch (ex) {
     }
   }
 

@@ -10,7 +10,7 @@ import router from './middleware/router.js';
 import AuthFilter from './filter/auth.js';
 
 let app = {
-  start: function(options) {
+  start: function (options) {
     spa.add(rest(options));
     spa.add(history());
     spa.add(rewrite(options));
@@ -18,15 +18,15 @@ let app = {
     filter.add(AuthFilter);
     spa.add(router(options));
 
-    let monitor = new Monitor({
+    Monitor({
       onChange: function (event) {
         let context = {
           request: new URL(event.newValue)
-        }
+        };
         spa.dispatch(context);
       }
-    })
+    });
   }
-}
+};
 
 export default app;

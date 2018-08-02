@@ -22,9 +22,9 @@ let filter = {
       } else {
         next();
       }
-    }
+    };
     chain();
   }
-}
+};
 
 export default filter;
