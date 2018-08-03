@@ -24,7 +24,7 @@ let filter = {
       }
     };
     chain();
-  }
+  },
 };
 
 export default filter;

@@ -8,7 +8,7 @@ export default function rest (options) {
   function str2matcher (url) {
     let ret = {
       url: url,
-      keys: []
+      keys: [],
     };
     let reg = url.replace(/:(.+?)(?=\/|$)/g, function ($1, $2) {
       ret.keys.push($2);
@@ -28,7 +28,7 @@ export default function rest (options) {
       if (res) {
         it.keys.forEach(function (key, index) {
           ret[key] = res[index + 1] || '';
-        })
+        });
         return true;
       }
     });

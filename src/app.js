@@ -1,5 +1,5 @@
 import spa from './monitor/spa.js';
-import Monitor from './monitor/monitor.js';
+import monitor from './monitor/monitor.js';
 
 import rest from './middleware/rest.js';
 import history from './middleware/history.js';
@@ -18,15 +18,13 @@ let app = {
     filter.add(AuthFilter);
     spa.add(router(options));
 
-    Monitor({
-      onChange: function (event) {
-        let context = {
-          request: new URL(event.newValue)
-        };
-        spa.dispatch(context);
-      }
+    monitor((event) => {
+      let context = {
+        request: new URL(event.newValue),
+      };
+      spa.dispatch(context);
     });
-  }
+  },
 };
 
 export default app;

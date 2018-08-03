@@ -19,7 +19,7 @@ export default function history () {
       doc.write('</title>');
       doc.write(
         '<script>' +
-        'parent.historyLocker["' + lockKey + '"]=!0;'+
+        'parent.historyLocker["' + lockKey + '"]=!0;' +
         'parent.location.hash=decodeURIComponent("' + encodeURIComponent(hash) + '");' +
         '</script>'
       );
@@ -35,5 +35,5 @@ export default function history () {
       context.request.hash
     );
     next();
-  }
+  };
 }

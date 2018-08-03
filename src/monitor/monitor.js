@@ -1,19 +1,19 @@
-// 监听地址变化触发 onChange
-function Monitor (opt) {
-  opt = opt || {};
+/**
+ * 监听地址hash变化
+ * @param {Function} callback - hashchange触发回调
+ */
+function monitor (callback) {
   let last = null;
 
   function checkUrl () {
     let url = window.location.href;
     let event = {
       newValue: url,
-      oldValue: last
+      oldValue: last,
     };
     if (url !== last) {
       last = url;
-      if (typeof opt.onChange === 'function') {
-        opt.onChange(event);
-      }
+      callback(event);
     }
   }
 
@@ -21,4 +21,4 @@ function Monitor (opt) {
   checkUrl();
 }
 
-export default Monitor;
+export default monitor;

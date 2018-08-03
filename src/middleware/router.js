@@ -27,11 +27,11 @@ export default function router (options) {
     let name = context.request.pathname;
     let moduleFunc = routes[name];
 
-    if(!moduleFunc) {
+    if (!moduleFunc) {
       location.href = '#/';
       return false;
     }
-    if (moduleFunc.prototype && moduleFunc.prototype.build ) { // 加载静态组件
+    if (moduleFunc.prototype && moduleFunc.prototype.build) { // 加载静态组件
       moduleManage(moduleFunc, name, context);
     } else if (typeof moduleFunc === 'function') { // 动态加载组价
       moduleFunc().then((moduleObj) => {
