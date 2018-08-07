@@ -13,5 +13,5 @@ cache:
     - "node_modules"
 
 script:
-    - "echo hello"
+  - npm run test
 
