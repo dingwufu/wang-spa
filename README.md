@@ -1,7 +1,7 @@
 # 网易作业spa
 
-<!-- [![Build Status][circleci-badge]][circleci-link] -->
-[![Coverage Status][coverage-badge]][coverage-link]
+[![Build Status](https://travis-ci.org/dingwufu/wang-spa.svg?branch=feature%2Fci)](https://travis-ci.org/dingwufu/wang-spa)
+[![Coverage Status](https://coveralls.io/repos/github/dingwufu/wang-spa/badge.svg)](https://coveralls.io/github/dingwufu/wang-spa)
 
 ## Build Setup
 
