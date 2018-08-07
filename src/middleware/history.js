@@ -1,4 +1,4 @@
-export default function history () {
+export default function history() {
   var iframe = document.createElement('iframe');
   iframe.style.position = 'absolute';
   iframe.style.visibility = 'hidden';
@@ -7,7 +7,7 @@ export default function history () {
 
   window.historyLocker = {};
   var lockKey = 'lock:' + (+new Date());
-  function doPushHistory (hash) {
+  function doPushHistory(hash) {
     if (!hash || window.historyLocker[lockKey]) {
       window.historyLocker[lockKey] = !1;
       return;
@@ -30,7 +30,7 @@ export default function history () {
     }
   }
 
-  return function (context, next) {
+  return function(context, next) {
     doPushHistory(
       context.request.hash
     );

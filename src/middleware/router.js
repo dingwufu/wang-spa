@@ -1,11 +1,11 @@
 import Module from '../module/module.js';
 
-export default function router (options) {
+export default function router(options) {
   // 用户传入路由配置
   let routes = options.routes || {};
   let current = null;
 
-  function moduleManage (module, name, context) {
+  function moduleManage(module, name, context) {
     if (!(module instanceof Module)) {
       let Module = module;
       module = new Module();
@@ -23,7 +23,7 @@ export default function router (options) {
     }
   }
 
-  return function (context, next) {
+  return function(context, next) {
     let name = context.request.pathname;
     let moduleFunc = routes[name];
 

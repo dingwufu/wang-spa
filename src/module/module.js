@@ -1,24 +1,24 @@
 class Module {
-  constructor (config) {
+  constructor(config) {
     this._parent = (config && config.parent) || document.getElementById('app') || document.body;
   }
-  build (options) {
+  build() {
     // 子类生成this._body
   }
-  show (context) {
+  show() {
     if (this._body) {
       this._parent.appendChild(this._body);
     }
   }
-  refresh () {
+  refresh() {
 
   }
-  hide () {
+  hide() {
     if (this._body) {
       document.getElementById('hide').appendChild(this._body);
     }
   }
-  destroy () {
+  destroy() {
     let body = this._body;
     if (body) {
       body.parentNode.removeChild(body);

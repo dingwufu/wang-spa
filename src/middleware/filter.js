@@ -1,18 +1,18 @@
 let filters = [];
 
 let filter = {
-  add: function (ft) {
+  add: function(ft) {
     if (ft instanceof Array) {
-      ft.forEach(function (it) {
+      ft.forEach(function(it) {
         filter.add(it);
       });
-      return;
+      return true;
     }
     filters.push(ft);
   },
-  mw: function (context, next) {
+  mw: function(context, next) {
     let index = 0;
-    let chain = function () {
+    let chain = function() {
       let Filter = filters[index++];
       if (Filter) {
         let ft = new Filter(

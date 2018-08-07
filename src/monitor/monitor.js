@@ -2,10 +2,10 @@
  * 监听地址hash变化
  * @param {Function} callback - hashchange触发回调
  */
-function monitor (callback) {
+function monitor(callback) {
   let last = null;
 
-  function checkUrl () {
+  function checkUrl() {
     let url = window.location.href;
     let event = {
       newValue: url,

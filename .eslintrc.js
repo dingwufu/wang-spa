@@ -28,5 +28,11 @@ module.exports = {
       "error",
       {"skipBlankLines": true}
     ],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "[iI]gnored" }]
   }
 }

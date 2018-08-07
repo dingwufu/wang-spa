@@ -6,7 +6,7 @@ process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 var webpackConfig = require('../../build/webpack.test.conf');
 
-module.exports = function karmaConfig (config) {
+module.exports = function karmaConfig(config) {
   config.set({
     // to run in additional browsers:
     // 1. install corresponding karma launcher

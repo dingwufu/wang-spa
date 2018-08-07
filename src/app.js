@@ -10,7 +10,7 @@ import router from './middleware/router.js';
 import AuthFilter from './filter/auth.js';
 
 let app = {
-  start: function (options) {
+  start: function(options) {
     spa.add(rest(options));
     spa.add(history());
     spa.add(rewrite(options));

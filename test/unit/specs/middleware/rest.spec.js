@@ -1,7 +1,7 @@
 import rest from '@/middleware/rest.js';
 import {assert} from 'chai';
 
-describe('middleware/rest', function () {
+describe('middleware/rest', function() {
   let context = {
     request: new URL('http://localhost:8080/#/group/china'),
   };
@@ -11,10 +11,10 @@ describe('middleware/rest', function () {
     ],
   };
   
-  describe('rest执行', function () {
+  describe('rest执行', function() {
     rest(options)(context, () => {});
     
-    it('url解析正常', function () {
+    it('url解析正常', function() {
       let contextRequest = context.request;
       assert.include(contextRequest.restParams, {
         name: 'china',
