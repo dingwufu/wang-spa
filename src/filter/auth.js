@@ -1,6 +1,6 @@
-import Filter from './index.js';
+import BaseFilter from './base.js';
 
-class AuthFilter extends Filter {
+class AuthFilter extends BaseFilter {
   doFilter () {
     let session = localStorage.getItem('session');
     let {pathname} = this._context.request;

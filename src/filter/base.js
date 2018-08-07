@@ -1,4 +1,4 @@
-class Filter {
+class BaseFilter {
   constructor (context, next, chain) {
     this._context = context;
     this._chain = chain;
@@ -21,4 +21,4 @@ class Filter {
   }
 }
 
-export default Filter;
+export default BaseFilter;

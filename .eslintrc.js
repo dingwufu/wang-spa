@@ -24,5 +24,9 @@ module.exports = {
     'semi': ['error', 'always'], // 分号
     "radix": 2, // parseInt必须指定第二个参数
     "comma-dangle": ["error", "always-multiline"],
+    "no-trailing-spaces": [
+      "error",
+      {"skipBlankLines": true}
+    ],
   }
 }
