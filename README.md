@@ -1,5 +1,8 @@
 # 网易作业spa
 
+<!-- [![Build Status][circleci-badge]][circleci-link] -->
+[![Coverage Status][coverage-badge]][coverage-link]
+
 ## Build Setup
 
 ``` bash
