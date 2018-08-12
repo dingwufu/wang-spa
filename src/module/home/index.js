@@ -4,6 +4,7 @@ import homeHbs from './home.hbs';
 class Home extends Module {
   build(options) {
     super.build(options);
+    this.data = {};
   }
 
   show() {
@@ -17,8 +18,10 @@ class Home extends Module {
   }
 
   _doUpdate() {
-    let hbs = homeHbs({name: name});
-    super.render(hbs);
+    super.innerHTML(this.render());
+  }
+  render(props) {
+    return homeHbs({...this.data, ...props});
   }
 }
 

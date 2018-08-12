@@ -7,7 +7,7 @@ app.start({
     '/group/:name',
     '/user/:id',
   ],
-  rules: [
+  rules: [ // 通过正则解析路由，含':'符号解析为参数，不含为模块路径
     {
       matcher: /^\/$/i,
       target: '/',

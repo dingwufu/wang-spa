@@ -8,7 +8,7 @@ class Module {
     this._parent.appendChild(this._body);
   }
   refresh() {}
-  render(html) {
+  innerHTML(html) {
     if (this._body) {
       this._body.innerHTML = html;
     }

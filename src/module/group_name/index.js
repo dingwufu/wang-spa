@@ -4,23 +4,29 @@ import groupNameHbs from './group_name.hbs';
 class GroupName extends Module {
   build(options) {
     super.build(options);
+    this.data = {
+      name: '',
+    };
   }
 
   show(context) {
     super.show(context);
     let req = context.request;
-    this._doUpdate(req.restParams.name);
+    this.data.name = req.restParams.name;
+    this._doUpdate();
   }
 
   refresh(context) {
     super.refresh(context);
     let req = context.request;
-    this._doUpdate(req.restParams.name);
+    this.data.name = req.restParams.name;
+    this._doUpdate();
   }
-
-  _doUpdate(name) {
-    let hbs = groupNameHbs({name: name});
-    super.render(hbs);
+  _doUpdate() {
+    super.innerHTML(this.render());
+  }
+  render(props) {
+    return groupNameHbs({...this.data, ...props});
   }
 }
 

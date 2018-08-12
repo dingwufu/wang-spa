@@ -4,6 +4,9 @@ import groupHbs from './group.hbs';
 class Group extends Module {
   build(options) {
     super.build(options);
+    this.data = {
+      name: 'group',
+    };
   }
 
   show() {
@@ -17,8 +20,10 @@ class Group extends Module {
   }
 
   _doUpdate() {
-    let hbs = groupHbs({name: 'group'});
-    super.render(hbs);
+    super.innerHTML(this.render());
+  }
+  render(props) {
+    return groupHbs({...this.data, ...props});
   }
 }
 
