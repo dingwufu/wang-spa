@@ -1,17 +1,17 @@
 class Module {
   constructor(config) {
-    this._parent = (config && config.parent) || document.getElementById('app') || document.body;
+    this._parent = (config && config.parent) || document.getElementById('app');
   }
-  build() {
-    // 子类生成this._body
-  }
+  build() {}
   show() {
-    if (this._body) {
-      this._parent.appendChild(this._body);
-    }
+    this._body = document.createElement('div');
+    this._parent.appendChild(this._body);
   }
-  refresh() {
-
+  refresh() {}
+  render(html) {
+    if (this._body) {
+      this._body.innerHTML = html;
+    }
   }
   hide() {
     if (this._body) {

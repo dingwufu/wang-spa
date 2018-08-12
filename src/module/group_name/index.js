@@ -1,11 +1,9 @@
-import Module from './module.js';
+import Module from '../module.js';
+import groupNameHbs from './group_name.hbs';
 
 class GroupName extends Module {
   build(options) {
     super.build(options);
-    this._body = document.createElement('div');
-    this._unode = document.createElement('p');
-    this._body.appendChild(this._unode);
   }
 
   show(context) {
@@ -21,7 +19,8 @@ class GroupName extends Module {
   }
 
   _doUpdate(name) {
-    this._unode.innerHTML = '<p>组件group/' + name + '</p>';
+    let hbs = groupNameHbs({name: name});
+    super.render(hbs);
   }
 }
 

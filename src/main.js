@@ -26,9 +26,9 @@ app.start({
     },
   ],
   routes: {
-    '/': () => import('./module/home.js'),
-    '/user/': () => import('./module/user.js'),
-    '/group': () => import('./module/group.js'),
-    '/group/': () => import('./module/group_name.js'),
+    '/': () => import('./module/home'),
+    '/user/': () => import('./module/user'),
+    '/group': () => import('./module/group'),
+    '/group/': () => import('./module/group_name'),
   },
 });
